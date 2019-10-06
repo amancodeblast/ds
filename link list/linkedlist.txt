@@ -50,3 +50,22 @@ Node* reverseList(Node *head)
   }
   return prev;
 }
+
+
+//Detect a loop in a linked list (getting a time limit exceeded error)
+int detectloop(Node *head) {
+    
+    // your code here
+    int r=0;
+    
+    Node *fast=head;
+    Node *slow=head;
+    while(fast!=NULL&&fast!=NULL&&fast->next!=NULL){
+        slow=slow->next;
+        fast=fast->next->next;
+        if(fast==slow){
+            r=1;
+        }
+    }
+    return r;
+}
