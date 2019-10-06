@@ -1,0 +1,52 @@
+//finding the middle of a linked list 
+int getMiddle(Node *head)
+{
+   // Your code here
+   Node *slow=head;
+   Node *fast=head;
+   while(fast->next!=NULL){
+       if(fast->next->next!=NULL){
+           fast=fast->next->next;
+           slow=slow->next;
+       }
+       else{
+           fast=fast->next;
+		   slow=slow->next;//for finding the even 2nd middle no.
+   }
+   }
+   return slow->data;
+}
+//reversing the linked list using recursion 
+Node* reverseList(Node *head)
+{
+  // Your code here
+  if(head->next==NULL||head==NULL){
+      return head;
+  }
+  Node *head1=reverseList(head->next);
+  head->next->next=head;
+  
+  head->next=NULL;
+  return head1;
+}
+
+
+
+//reversing the linked list using while loop (not compiled)
+
+Node* reverseList(Node *head)
+{
+  // Your code here
+
+  Node *prev=NULL;
+  Node *cu=head;
+  Node *n=NULL;
+  while(cu!=NULL){
+      n=cu->next;
+      cu->next=prev;
+      prev=cu;
+      cu=n;
+      
+  }
+  return prev;
+}
