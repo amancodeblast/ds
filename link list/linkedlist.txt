@@ -69,3 +69,28 @@ int detectloop(Node *head) {
     }
     return r;
 }
+
+
+
+// reverse a part of linked list (seg fault)
+
+struct node *reverse (struct node *head, int k)
+{ 
+    // Complete this method
+    if(head==NULL){
+        return head;
+    }
+    struct node * prev=NULL;
+    struct node *cu=head;
+    struct node *n=NULL;
+    int i=0;
+    while(i<k&&head!=NULL){
+        n=cu->next;s
+        cu->next=prev;
+        prev=cu;
+        cu=n;
+        i++;
+    }
+    head->next=reverse(n,k);
+    return prev;
+}
