@@ -94,3 +94,26 @@ struct node *reverse (struct node *head, int k)
     head->next=reverse(n,k);
     return prev;
 }
+
+//rotate a linked list by k places
+Node* rotate(Node* head, int k) {
+    // Your code here
+    Node *temp=head;
+    int i=1;
+    while(i<k&&head!=NULL){
+    head=head->next;
+    i++;    
+    }
+    Node *head2=head;
+    while(head2!=NULL &&head2->next!=NULL){
+        head2=head2->next;
+    }
+    if(head2!=NULL){
+    head2->next=temp;
+    Node *r=head->next;
+    head->next=NULL;   
+    return r;
+    }
+    return NULL;
+    
+}
