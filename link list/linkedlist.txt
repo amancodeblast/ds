@@ -141,4 +141,24 @@ void removeTheLoop(Node *head)
      }
     
 }
-//
+//N-th node from the last
+int getNthFromLast(Node *head, int n)
+{
+       // Your code here
+       int i=1;
+       Node * ahead=head;
+       Node*behind=head;
+       while(i<n&&ahead!=NULL){
+           ahead=ahead->next;
+           i++;
+       }
+       if(ahead==NULL){
+           return -1;
+       }
+       while(ahead!=NULL&&ahead->next!=NULL){
+           ahead=ahead->next;
+           behind=behind->next;
+       }
+        return behind->data;
+    
+}
