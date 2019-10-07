@@ -52,7 +52,8 @@ Node* reverseList(Node *head)
 }
 
 
-//Detect a loop in a linked list (getting a time limit exceeded error)
+//Detect a loop in a linked list 
+//error removed by a small difference that doesnt even matter
 int detectloop(Node *head) {
     
     // your code here
@@ -117,3 +118,27 @@ Node* rotate(Node* head, int k) {
     return NULL;
     
 }
+
+//remove loop from a linked list
+void removeTheLoop(Node *head)
+{
+     //Your code here
+     unordered_set<Node*>s;
+     s.insert(head);
+     while(head!=NULL){
+			
+         if(s.find(head->next)!=s.end()){
+         //entering in this "if body" means that we have found the
+		 //pointer the second time that will signal that the next 
+		 //needs to be set to null to terminate the linked list
+         head->next=NULL;
+         return;
+     } 
+    
+         s.insert(head->next);
+         head=head->next;
+     
+     }
+    
+}
+//
