@@ -60,7 +60,7 @@ int detectloop(Node *head) {
     
     Node *fast=head;
     Node *slow=head;
-    while(fast!=NULL&&fast!=NULL&&fast->next!=NULL){
+    while(slow!=NULL&&fast!=NULL&&fast->next!=NULL){
         slow=slow->next;
         fast=fast->next->next;
         if(fast==slow){
