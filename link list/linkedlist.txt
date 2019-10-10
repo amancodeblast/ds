@@ -197,3 +197,22 @@ Node* sortedMerge(Node* head1,   Node* head2)
     
     
 }
+//linked list palindrome using simple get number and reverse technique
+bool isPalindrome(Node *head)
+{
+    //Your code here
+    int n,r;n=0,r=0;
+    while(head){
+        n=n*10+head->data;
+        head=head->next;
+        }
+        int n0=n;
+    while(n>0){
+        r=r*10+n%10;
+        n=n/10;
+    }
+    if(n0==r){
+        return true;
+    }
+    return false;
+}
