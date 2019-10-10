@@ -292,3 +292,19 @@ Node* addTwoLists(Node* first, Node* second) {
     return head;
     }
 
+//pair wise swap a lot similar to reverse a given length of linked list, just no loops required
+Node* pairWiseSwap(struct Node* head)
+{
+   // The task is to complete this method
+   if(head==NULL||head->next==NULL){
+       return head;
+   }
+   Node *h=head;
+   Node *n=head->next;
+   Node *fh=head->next;
+   head->next=pairWiseSwap(n->next);
+   
+   n->next=h;
+   return n;
+   
+} 
