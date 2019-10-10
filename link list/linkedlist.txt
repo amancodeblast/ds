@@ -216,3 +216,79 @@ bool isPalindrome(Node *head)
     }
     return false;
 }
+//linked list to add two numbers ex 1->2->3->NULL means the no is 321.
+//code for returning the number format
+Node* addTwoLists(Node* first, Node* second) {
+    // Code here
+    int a,d,c;c=0,d=0,a=0;
+    int i=0;
+    bool b1,b2;
+    while(first&&second){
+        b1=first!=NULL;
+        b2=second!=NULL;
+        if(!b1&&b2)
+            a=c+second->data;
+        if(b1&&!b2)
+            a=c+first->data;
+        if(b1&&b2)
+            a=c+first->data+second->data;
+        c=a/10;
+        a=a%10;
+        d=d*10+a;
+        if(b1)
+        first=first->next;
+        if(b2)
+        second=second->next;
+    }
+    int r=0;
+    while(n>0){
+        r=r*10+n%10;
+        n=n/10;
+    }
+}
+
+
+
+
+
+
+//initial code for returning the linked list format(segerror)
+Node* addTwoLists(Node* first, Node* second) {
+    // Code here
+    int a,d,c;c=0,d=0,a=0;
+    
+    bool b1,b2;
+    Node *t;
+    Node *head;
+    while(first||second){
+        b1=first!=NULL;
+        b2=second!=NULL;
+        if(!b1&&b2)
+            a=c+second->data;
+        if(b1&&!b2)
+            a=c+first->data;
+        if(b1&&b2)
+            a=c+first->data+second->data;
+        c=a/10;
+        a=a%10;
+        Node *n=new Node(a);
+        if(t==NULL){
+            t=n;
+            head=n;
+            
+        }
+        else{
+        t->next=n;
+        t=n;
+        }
+       // n->next=t;
+        //t=n;
+        //d=d*10+a;this could have been done when the output was in int
+        if(b1)
+        first=first->next;
+        if(b2)
+        second=second->next;
+    }
+    return head;
+    }
+
