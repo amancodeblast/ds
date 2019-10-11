@@ -78,23 +78,25 @@ int detectloop(Node *head) {
 struct node *reverse (struct node *head, int k)
 { 
     // Complete this method
-    if(head==NULL){
-        return head;
-    }
+   
     struct node * prev=NULL;
     struct node *cu=head;
     struct node *n=NULL;
     int i=0;
-    while(i<k&&head!=NULL){
-        n=cu->next;s
+    while(i<k&&cu!=NULL){
+        n=cu->next;
         cu->next=prev;
         prev=cu;
         cu=n;
         i++;
     }
+    if(cu!=NULL){
     head->next=reverse(n,k);
+    
+    }
     return prev;
 }
+
 
 //rotate a linked list by k places
 Node* rotate(Node* head, int k) {
@@ -366,4 +368,36 @@ void deleteNode(Node *node)
     
 }
 
-
+//mast wala code
+SinglyLinkedListNode* combineList(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+    SinglyLinkedListNode *prev,cu,n;
+    prev=NULL;
+    cu=head2;
+    n=NULL;
+    while(cu){
+        
+        n=cu->next;
+        cu->next=prev;
+        prev=cu;
+        cu=n;
+}
+    head2=prev;
+    int c=0;
+    SinglyLinkedListNode *h3=new  SinglyLinkedListNode(-1);
+    SinglyLinkedListNode* head3=h3;
+    
+    while(head2||head1){
+        if(c%2==0&&head1){
+            head3->next=head1;
+            head1=head1->next;
+            head3=head3->next;
+        }
+        else if(head2){
+            head3->next=head2;
+            head2=head2->next;
+            head3=head3->next;
+        }
+        c++;
+    }
+    return h3->next;
+}
