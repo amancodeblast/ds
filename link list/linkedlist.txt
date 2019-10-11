@@ -354,3 +354,16 @@ Node* segregate(Node *head) {
     d1->next=h2;
     return h;
 }
+//delete a node without knowing the head node just the deleted node address and that it cant be the last node
+void deleteNode(Node *node)
+{
+   // Your code here
+   node->data=node->next->data;
+   if(node->next)
+   node->next=node->next->next;
+   else
+   node->next=NULL;
+    
+}
+
+
