@@ -308,3 +308,53 @@ Node* pairWiseSwap(struct Node* head)
    return n;
    
 } 
+//Arrange 0,1,2 in ascending order including the frequency
+//using this code i got the time limit exceeded erroe
+Node* segregate(Node *head) {
+    
+    // Add code here
+    Node *temp;
+    NOde *h0,*h1,*h2;
+    h0=NULL;h1=NULL;h2=NULL;
+    while(head){
+        temp=head;
+        head=head->next;
+        if(temp->data==0){
+            if(h0==NULL){
+                h0=temp;
+            }
+            else{
+                temp->next=h0;
+                h0=temp;
+            }
+        }
+        if(temp->data==1){
+            if(h1==NULL){
+                h1=temp;
+            }
+            else{
+                temp->next=h1;
+                h1=temp;
+            }
+        }
+        if(temp->data==2){
+            if(h2==NULL){
+                h2=temp;
+            }
+            else{
+                temp->next=h2;
+                h2=temp;
+            }
+        }
+    }
+    Node *h=h0;
+    while(h0->next){
+        h0=h0->next;
+    }
+    h0->next=h1;
+    while(h1->next){
+        h1=h1->next;
+    }
+    h1->next=h2;
+    return h;
+}
