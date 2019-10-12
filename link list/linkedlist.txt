@@ -32,7 +32,7 @@ Node* reverseList(Node *head)
 
 
 
-//reversing the linked list using while loop (not compiled)
+//reversing the linked list using while loop 
 
 Node* reverseList(Node *head)
 {
@@ -219,7 +219,7 @@ bool isPalindrome(Node *head)
     return false;
 }
 //linked list to add two numbers ex 1->2->3->NULL means the no is 321.
-//code for returning the number format
+//code for returning the number format(not working)
 Node* addTwoLists(Node* first, Node* second) {
     // Code here
     int a,d,c;c=0,d=0,a=0;
@@ -400,4 +400,48 @@ SinglyLinkedListNode* combineList(SinglyLinkedListNode* head1, SinglyLinkedListN
         c++;
     }
     return h3->next;
+}
+//intersection of two linked list and return the value
+
+int intersectPoint(Node* head1, Node* head2)
+{
+    // Your Code Here4
+    //1 the simple way using set
+    /*
+    Node *h1=head1;
+    Node *h2=head2;
+    
+     unordered_set<Node*>s;
+     s.insert(h1);
+     h1=h1->data;
+    while(h1){
+        s.insert(h1->data);
+        h1=h1->next;
+        
+    }
+    while(h2){
+        if(s.find(h2->data)!=s.end())
+            return(h2->data);
+        h2=h2->next;
+        
+    }
+    return -1;
+    */
+    //trick way of changing all the linked list value to -1 and  
+    //then checking if there is any negative value in the list 2 
+    //and then returning the value
+    while(head1){
+        head1->data=-head1->data;
+        head1=head1->next;
+        
+    }
+    while(head2){
+        if(head2->data<0){
+            return -head2->data;
+        }
+    head2=head2->next;
+    
+        
+    }
+    return -1;
 }
