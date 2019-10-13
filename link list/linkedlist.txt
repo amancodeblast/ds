@@ -370,7 +370,7 @@ void deleteNode(Node *node)
 
 //mast wala code
 SinglyLinkedListNode* combineList(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
-    SinglyLinkedListNode *prev,cu,n;
+    SinglyLinkedList *prev,cu,n;
     prev=NULL;
     cu=head2;
     n=NULL;
@@ -383,7 +383,7 @@ SinglyLinkedListNode* combineList(SinglyLinkedListNode* head1, SinglyLinkedListN
 }
     head2=prev;
     int c=0;
-    SinglyLinkedListNode *h3=new  SinglyLinkedListNode(-1);
+    SinglyLinkedList *h3=new  SinglyLinkedListNode(-1);
     SinglyLinkedListNode* head3=h3;
     
     while(head2||head1){
