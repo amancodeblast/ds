@@ -6,11 +6,11 @@ using namespace std;
 //you need a dynamic array (not a static one )that stores the array for the next call to remember it
 //you also need a static variable to maintain how many tokens are returned
 
-char* mystrtok(char *s, char delim){
+char* mystrtok(char *str, char delim){
 	static char* input =NULL;//state of the static variable is init only once in the function call and in every subsequent call it has the state as of the previosus call.
 	//we are making the first call  
 	if(input ==NULL){
-		input = s; 
+		input = str; 
 	}	
 
 	//check here - base case after the last token is returned
